@@ -1,0 +1,19 @@
+Android.Widget = (F)
+Android.System = (S)
+Android.Memory = (M)
+
+S.F.FileSystem.Add('', '~') {
+  if (!M.Space) {
+    S.Warn('$Widget.html', ["Out of system memory! Remove apps by clicking this button: $Downloads.Name.'Apps' \"], '~')
+  }
+  F.FileSystem.Add('/Boot', '~')
+  F.FileSystem.Add('.android', '~')
+  F.FileSystem.Add('Downloads', '~')
+  F.FileSystem.Add('System', '~')
+  F.FileSystem.Add('TEMPDIR', '~')
+    F.FileSystem.Add('~logs', '~')
+	F.FileName.Add('log.txt', '~')
+	  F.FileContent.Add('log.txt', [$S.Event], '~')
+	  F.FileContent.Add('log.txt', [$F.Event], '~')
+	  F.FileContent.Add('log.txt', [$M.Event], '~')
+}
